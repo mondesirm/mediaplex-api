@@ -1,0 +1,32 @@
+[
+  {
+    "channel": "002RadioTV.do",
+    "url": "https://cdn.002radio.com:3909/live/radio002live.m3u8",
+    "http_referrer": null,
+    "user_agent": null
+  },
+  {
+    "channel": "1001Noites.br",
+    "url": "https://cdn.jmvstream.com/w/LVW-8155/ngrp:LVW8155_41E1ciuCvO_all/playlist.m3u8",
+    "http_referrer": null,
+    "user_agent": null
+  },
+  {
+    "channel": "100AutoMotoTV.bg",
+    "url": "http://100automoto.tv:1935/bgtv1/autotv/playlist.m3u8",
+    "http_referrer": null,
+    "user_agent": null
+  },
+  {
+    "channel": "100News.ua",
+    "url": "http://85.238.112.40:8810/hls_sec/239.33.16.32-.m3u8",
+    "http_referrer": null,
+    "user_agent": null
+  },
+  {
+    "channel": "101TeleAntequera.es",
+    "url": "https://limited38.todostreaming.es/live/101tv-AntequeraHD.m3u8",
+    "http_referrer": null,
+    "user_agent": null
+  }
+]

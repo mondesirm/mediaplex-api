@@ -1,0 +1,129 @@
+[
+    {
+        "id": "002RadioTV.do",
+        "name": "002 Radio TV",
+        "alt_names": [],
+        "network": null,
+        "owners": [],
+        "country": "DO",
+        "subdivision": null,
+        "city": null,
+        "broadcast_area": [
+            "c/DO"
+        ],
+        "languages": [
+            "spa"
+        ],
+        "categories": [
+            "general"
+        ],
+        "is_nsfw": false,
+        "launched": null,
+        "closed": null,
+        "replaced_by": null,
+        "website": "https://www.002radio.com/",
+        "logo": "https://i.imgur.com/7oNe8xj.png"
+    },
+    {
+        "id": "1001Noites.br",
+        "name": "1001 Noites",
+        "alt_names": [],
+        "network": null,
+        "owners": [],
+        "country": "BR",
+        "subdivision": null,
+        "city": null,
+        "broadcast_area": [
+            "c/BR"
+        ],
+        "languages": [
+            "por"
+        ],
+        "categories": [
+            "shop"
+        ],
+        "is_nsfw": false,
+        "launched": null,
+        "closed": null,
+        "replaced_by": null,
+        "website": null,
+        "logo": "https://i.imgur.com/dWA9y2J.png"
+    },
+    {
+        "id": "100AutoMotoTV.bg",
+        "name": "100% Auto Moto TV",
+        "alt_names": [],
+        "network": null,
+        "owners": [],
+        "country": "BG",
+        "subdivision": null,
+        "city": null,
+        "broadcast_area": [
+            "c/BG"
+        ],
+        "languages": [
+            "bul",
+            "eng"
+        ],
+        "categories": [
+            "auto"
+        ],
+        "is_nsfw": false,
+        "launched": null,
+        "closed": null,
+        "replaced_by": null,
+        "website": null,
+        "logo": "https://i.imgur.com/mip1puB.png"
+    },
+    {
+        "id": "100News.ua",
+        "name": "100% News",
+        "alt_names": [],
+        "network": null,
+        "owners": [],
+        "country": "UA",
+        "subdivision": null,
+        "city": null,
+        "broadcast_area": [
+            "c/UA",
+            "c/RU"
+        ],
+        "languages": [
+            "ukr"
+        ],
+        "categories": [
+            "news"
+        ],
+        "is_nsfw": false,
+        "launched": null,
+        "closed": null,
+        "replaced_by": null,
+        "website": "https://www.100news.tv/",
+        "logo": "https://i.imgur.com/wEou5az.png"
+    },
+    {
+        "id": "101TeleAntequera.es",
+        "name": "101 Tele Antequera",
+        "alt_names": [],
+        "network": null,
+        "owners": [],
+        "country": "ES",
+        "subdivision": null,
+        "city": null,
+        "broadcast_area": [
+            "c/ES"
+        ],
+        "languages": [
+            "spa"
+        ],
+        "categories": [
+            "music"
+        ],
+        "is_nsfw": false,
+        "launched": null,
+        "closed": null,
+        "replaced_by": null,
+        "website": null,
+        "logo": "https://i.imgur.com/skXiSaf.png"
+    }
+]
