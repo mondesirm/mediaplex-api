@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Dominican Republic",
+        "code": "DO",
+        "languages": [
+            "spa"
+        ],
+        "flag": "🇩🇴"
+    },
+    {
+        "name": "Brazil",
+        "code": "BR",
+        "languages": [
+            "por"
+        ],
+        "flag": "🇧🇷"
+    },
+    {
+        "name": "Bulgaria",
+        "code": "BG",
+        "languages": [
+            "bul"
+        ],
+        "flag": "🇧🇬"
+    },
+    {
+        "name": "Ukraine",
+        "code": "UA",
+        "languages": [
+            "ukr"
+        ],
+        "flag": "🇺🇦"
+    },
+    {
+        "name": "Spain",
+        "code": "ES",
+        "languages": [
+            "spa"
+        ],
+        "flag": "🇪🇸"
+    }
+]
