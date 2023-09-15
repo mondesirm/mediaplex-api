@@ -1,7 +1,7 @@
 [
   {
     "name": ".black Russia",
-    "logo": "https://web.archive.org/web/20221208065858/https://i.imgur.com/rzrOS3N.png",
+    "logo": "https://i.imgur.com/rzrOS3N.png",
     "url": "https://web.archive.org/web/20221208065858/https://okkotv-live.cdnvideo.ru/channel/Sony_Turbo.m3u8",
     "categories": [{ "name": "Entertainment", "slug": "entertainment" }],
     "countries": [{ "name": "Russia", "code": "RU" }],
@@ -10,7 +10,7 @@
   },
   {
     "name": ".red Russia",
-    "logo": "https://web.archive.org/web/20221208065858/https://i.imgur.com/xUGWmyh.png",
+    "logo": "https://i.imgur.com/xUGWmyh.png",
     "url": "https://web.archive.org/web/20221208065858/https://okkotv-live.cdnvideo.ru/channel/Sony_ET.m3u8",
     "categories": [{ "name": "Entertainment", "slug": "entertainment" }],
     "countries": [{ "name": "Russia", "code": "RU" }],
