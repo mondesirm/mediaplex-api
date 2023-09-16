@@ -1,8 +1,8 @@
 <h1 align="center">
-📺 TeVe Backend
+📺 mediaplex Backend
 </h1>
 
-This repository is developed as a backend for [TeVe App](https://github.com/7-USH/TeVe). This backend utilizes the following tech-stack:
+This repository is developed as a backend for [mediaplex App](https://github.com/mondesirm/mediaplex-app). This backend utilizes the following tech-stack:
 
 - [🐳 Docker](https://www.docker.com/)
 - [🐍 FastAPI](https://fastapi.tiangolo.com/)
@@ -63,7 +63,7 @@ for hosting purpose, this backend application is hosted on [Okteto](https://www.
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `name` | `string` | username  |
+| `username` | `string` | username  |
 | `password` | `string` | password |
 | `email` | `string` | email |
 
@@ -113,5 +113,3 @@ for hosting purpose, this backend application is hosted on [Okteto](https://www.
 | `stream_link` | `string` | **Required**. your Access Token  |
 | `channel_name` | `string` | **Required**. your Access Token  |
 | `category` | `string` | **Required**. your Access Token  |
-
-

@@ -1,10 +1,10 @@
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends
 
-from teve.database import get_db
-from teve.repository import user
-from teve.schemas import user_schema
-from teve.config.oauth2 import get_current_user
+from mediaplex.database import get_db
+from mediaplex.repository import user
+from mediaplex.schemas import user_schema
+from mediaplex.config.oauth2 import get_current_user
 
 router = APIRouter(tags=['user'], prefix='/user')
 

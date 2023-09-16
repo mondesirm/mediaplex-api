@@ -1,8 +1,8 @@
 from fastapi import HTTPException, status, Depends
 from sqlalchemy.orm import Session
-from teve.database import get_db
-from teve.models import User, Fav
-from teve.schemas import fav_schema
+from mediaplex.database import get_db
+from mediaplex.models import User, Fav
+from mediaplex.schemas import fav_schema
 
 def add_to_fav(current_user: str, request: fav_schema.Fav, db: Session = Depends(get_db)):
     if not current_user: raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User doesn't exist")

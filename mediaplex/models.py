@@ -1,4 +1,4 @@
-from teve.database import Base
+from mediaplex.database import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, ForeignKey
 

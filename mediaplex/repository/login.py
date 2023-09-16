@@ -1,10 +1,10 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from teve.models import User
-from teve.config.hashing import Hash
-from teve.schemas.login_schema import Login
-from teve.config.authtoken import create_access_token
+from mediaplex.models import User
+from mediaplex.config.hashing import Hash
+from mediaplex.schemas.login_schema import Login
+from mediaplex.config.authtoken import create_access_token
 
 def login_user(db: Session, request: Login):
     user = db.query(User).filter(User.email == request.username).first()

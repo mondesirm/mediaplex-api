@@ -3,9 +3,9 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from teve import models
-from teve.database import engine
-from teve.routers import user, login, fav
+from mediaplex import models
+from mediaplex.database import engine
+from mediaplex.routers import user, login, fav
 
 app = FastAPI()
 app.mount('/static', StaticFiles(directory='static'), name='static')

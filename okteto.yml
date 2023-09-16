@@ -32,9 +32,9 @@ deploy:
 dev:
   web:
     command: bash
-    workdir: /teve
+    workdir: /mediaplex
     sync:
-      - .:/teve
+      - .:/mediaplex
     forward:
       - 8080:8080
     reverse:

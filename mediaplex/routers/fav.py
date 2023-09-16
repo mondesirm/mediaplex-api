@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from teve.schemas import fav_schema, user_schema
-from teve.database import get_db
-from teve.config.oauth2 import get_current_user
-from teve.repository import fav
+from mediaplex.schemas import fav_schema, user_schema
+from mediaplex.database import get_db
+from mediaplex.config.oauth2 import get_current_user
+from mediaplex.repository import fav
 from typing import List
 
 router = APIRouter(tags=["favourites"],prefix="/fav")

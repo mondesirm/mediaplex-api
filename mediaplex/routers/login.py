@@ -2,9 +2,9 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
-from teve.database import get_db
-from teve.schemas.login_schema import Login
-from teve.repository.login import login_user, get_token
+from mediaplex.database import get_db
+from mediaplex.schemas.login_schema import Login
+from mediaplex.repository.login import login_user, get_token
 
 router = APIRouter(tags=['login'], prefix='/login')
 
