@@ -1,21 +1,22 @@
-from fastapi import APIRouter, Depends
+from typing import List
 from sqlalchemy.orm import Session
-from mediaplex.schemas import fav_schema, user_schema
+from fastapi import APIRouter, Depends
+
+from mediaplex.repository import fav
 from mediaplex.database import get_db
 from mediaplex.config.oauth2 import get_current_user
-from mediaplex.repository import fav
-from typing import List
+from mediaplex.schemas import fav_schema, user_schema
 
-router = APIRouter(tags=["favourites"],prefix="/fav")
+router = APIRouter(tags=['favs'], prefix='/fav')
 
-@router.get("/", response_model=List[fav_schema.Fav])
-def get_all_fav(db: Session = Depends(get_db), current_user: user_schema.User = Depends(get_current_user)):
-    return fav.get_user_favs(current_user=current_user, db=db)
+@router.get('/', response_model=List[fav_schema.Fav])
+def get_for(current_user: user_schema.User = Depends(get_current_user), db: Session = Depends(get_db)):
+    return fav.get_for(current_user, db)
 
-@router.post("/add")
-def add_to_fav(request:fav_schema.Fav,db:Session=Depends(get_db),current_user:user_schema.User=Depends(get_current_user)):
-    return fav.add_to_fav(current_user=current_user,db=db,request=request)
+@router.post('/add')
+def add_to(request: fav_schema.Fav, current_user: user_schema.User = Depends(get_current_user), db: Session = Depends(get_db)):
+    return fav.add_to(current_user, request, db)
 
-@router.delete("/delete")
-def delete_fav(request: fav_schema.Fav, db: Session = Depends(get_db), current_user: user_schema.User = Depends(get_current_user)):
-    return fav.delete_user_favs(current_user=current_user,request=request,db=db)
+@router.delete('/delete')
+def remove_from(request: fav_schema.Fav, current_user: user_schema.User = Depends(get_current_user), db: Session = Depends(get_db)):
+    return fav.remove_from(current_user, request, db)
