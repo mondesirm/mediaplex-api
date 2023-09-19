@@ -86,8 +86,8 @@ for hosting purpose, this backend application is hosted on [Okteto](https://www.
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `stream_link` | `string` | **Required**. your Access Token  |
-| `channel_name` | `string` | **Required**. your Access Token  |
+| `url` | `string` | **Required**. your Access Token  |
+| `name` | `string` | **Required**. your Access Token  |
 | `category` | `string` | **Required**. your Access Token  |
 
 
@@ -110,6 +110,6 @@ for hosting purpose, this backend application is hosted on [Okteto](https://www.
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `stream_link` | `string` | **Required**. your Access Token  |
-| `channel_name` | `string` | **Required**. your Access Token  |
+| `url` | `string` | **Required**. your Access Token  |
+| `name` | `string` | **Required**. your Access Token  |
 | `category` | `string` | **Required**. your Access Token  |

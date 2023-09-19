@@ -12,8 +12,8 @@ class User(Base):
 
 class Fav(Base):
     __tablename__ = 'fav'
-    stream_link = Column(String, primary_key=True)
+    url = Column(String, primary_key=True)
+    name = Column(String)
     category = Column(String)
-    channel_name = Column(String)
     user_id = Column(String, ForeignKey('user.email'))
     owner = relationship('User', back_populates='favs')

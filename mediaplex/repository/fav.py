@@ -14,8 +14,8 @@ def add_to(current_user: str, request: fav_schema.Fav, db: Session):
     if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'User doesn\'t exist')
 
     try:
-        user = db.query(User).filter(User.email == current_user).first()
-        user_fav = Fav(stream_link=request.stream_link, category=request.category, channel_name=request.channel_name, user_id=user.email)
+        user: User = db.query(User).filter(User.email == current_user).first()
+        user_fav = Fav(url=request.url, category=request.category, name=request.name, user_id=user.email)
         db.add(user_fav); db.commit(); db.refresh(user_fav)
         return user_fav
     except Exception: raise HTTPException(status.HTTP_406_NOT_ACCEPTABLE, 'Already in favorites')
@@ -23,6 +23,6 @@ def add_to(current_user: str, request: fav_schema.Fav, db: Session):
 def remove_from(current_user: str, request: fav_schema.Fav, db: Session = Depends(get_db)):
     if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'User doesn\'t exist')
     try:
-        db.query(Fav).filter(Fav.user_id == current_user, Fav.stream_link == request.stream_link, Fav.category == request.category).delete(synchronize_session=False)
+        db.query(Fav).filter(Fav.user_id == current_user, Fav.url == request.url, Fav.category == request.category).delete(synchronize_session=False)
         db.commit()
     except Exception: raise HTTPException(status.HTTP_406_NOT_ACCEPTABLE, "Nothing to delete")
