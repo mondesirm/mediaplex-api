@@ -1,11 +1,14 @@
 from pydantic import BaseModel
 
-
-class OurBaseModel(BaseModel):
-    class Config:
-        orm_mode = True
-
-class Fav(OurBaseModel):
+class FavBase(BaseModel):
     url : str
     name: str
     category: str
+    class Config:
+        orm_mode = True
+
+class FavCreate(FavBase):
+    pass
+
+class Fav(FavBase):
+    id: int

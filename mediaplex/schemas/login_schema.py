@@ -5,5 +5,5 @@ class MyBaseModel(BaseModel):
         orm_mode = True
 
 class Login(MyBaseModel):
+    email: str
     password: str
-    username: str

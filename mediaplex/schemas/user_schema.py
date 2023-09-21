@@ -1,14 +1,20 @@
+from typing import List
 from pydantic import BaseModel
+from mediaplex.schemas.fav_schema import Fav
 
-class MyBaseModel(BaseModel):
+class UserBase(BaseModel):
+    email: str
+    username:  str
     class Config:
         orm_mode = True
 
-class User(MyBaseModel):
-    email: str
+class UserCreate(UserBase):
     password: str
-    username:  str
 
-class UserView(MyBaseModel):
-    email: str
-    username:str
+class UserUpdate(UserBase):
+    old_password: str = None
+    new_password: str = None
+
+class User(UserBase):
+    id: int
+    favs: List[Fav]

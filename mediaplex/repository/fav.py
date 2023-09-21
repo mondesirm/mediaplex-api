@@ -1,28 +1,40 @@
+from typing import List
 from sqlalchemy.orm import Session
-from fastapi import HTTPException, status, Depends
+from fastapi import HTTPException, status
 
-from mediaplex.database import get_db
 from mediaplex.models import User, Fav
-from mediaplex.schemas import fav_schema
 
-def get_for(current_user: str, db: Session):
-    if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'User doesn\'t exist')
-    favs = db.query(Fav).filter(Fav.user_id == current_user).all()
+def get_all(current_user: str, db: Session):
+    # Check if current user exists and is authenticated
+    if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'Current user not found')
+    user: User = db.query(User).filter(User.email == current_user).first()
+    if not user: raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'User {current_user} not found')
+    # Return all associated data for the current user
+    favs: List[Fav] = db.query(Fav).filter(Fav.user_id == current_user).all()
+    #? if not favs: raise HTTPException(status.HTTP_404_NOT_FOUND, 'No favorites found')
     return favs
 
-def add_to(current_user: str, request: fav_schema.Fav, db: Session):
-    if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'User doesn\'t exist')
+def add_to(current_user: str, request: Fav, db: Session):
+    # Check if current user exists and is authenticated
+    if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'Current user not found')
+    user: User = db.query(User).filter(User.email == current_user).first()
+    if not user: raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'User {current_user} not found')
+    # Check if data is already in the database
+    fav: Fav = db.query(Fav).filter(Fav.user_id == user.email, Fav.url == request.url).first()
+    if fav: raise HTTPException(status.HTTP_406_NOT_ACCEPTABLE, 'Already in favorites')
+    # Add it otherwise and return it
+    fav: Fav = Fav(url=request.url, name=request.name, category=request.category, user_id=user.email)
+    db.add(fav); db.commit(); db.refresh(fav)
+    return fav
 
-    try:
-        user: User = db.query(User).filter(User.email == current_user).first()
-        user_fav = Fav(url=request.url, category=request.category, name=request.name, user_id=user.email)
-        db.add(user_fav); db.commit(); db.refresh(user_fav)
-        return user_fav
-    except Exception: raise HTTPException(status.HTTP_406_NOT_ACCEPTABLE, 'Already in favorites')
-
-def remove_from(current_user: str, request: fav_schema.Fav, db: Session = Depends(get_db)):
-    if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'User doesn\'t exist')
-    try:
-        db.query(Fav).filter(Fav.user_id == current_user, Fav.url == request.url, Fav.category == request.category).delete(synchronize_session=False)
-        db.commit()
-    except Exception: raise HTTPException(status.HTTP_406_NOT_ACCEPTABLE, "Nothing to delete")
+def delete(id: int, current_user: str, db: Session):
+    # Check if current user exists and is authenticated
+    if not current_user: raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'Current user not found')
+    user: User = db.query(User).filter(User.email == current_user).first()
+    if not user: raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'User {current_user} not found')
+    # Check if data is already in the database
+    fav: Fav = db.query(Fav).filter(Fav.user_id == user.email, Fav.id == id).first()
+    if not fav: raise HTTPException(status.HTTP_404_NOT_FOUND, 'Favorite not found')
+    # Delete it otherwise
+    db.delete(fav); db.commit()
+    return fav
