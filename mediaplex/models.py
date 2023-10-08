@@ -6,7 +6,7 @@ class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String)
-    email = Column(String, unique=True, index=True)
+    email = Column(String, unique=True)
     password = Column(String)
     favs = relationship('Fav', back_populates='user')
 
@@ -16,5 +16,5 @@ class Fav(Base):
     url = Column(String)
     name = Column(String)
     category = Column(String)
-    user_id = Column(String, ForeignKey('user.email'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship('User', back_populates='favs')

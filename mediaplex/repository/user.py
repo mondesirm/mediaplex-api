@@ -2,7 +2,7 @@ from typing import List
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from mediaplex.models import User
+from mediaplex.models import User, Fav
 from mediaplex.config.hashing import Hash
 from mediaplex.schemas.user_schema import UserUpdate
 from mediaplex.config.authtoken import create_access_token
@@ -23,6 +23,8 @@ def update_profile(request: UserUpdate, current_user: str, db: Session):
     # Check if old password is provided and is correct
     if not request.old_password: raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Old password not provided')
     if not Hash.verify(user.password, request.old_password): raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Old password is incorrect')
+    # Update user_id in favs by new email
+    db.query(Fav).filter(Fav.user_id == user.id).update({Fav.user_id: user.id})
     # Update user's data and return it
     user.email = request.email; user.username = request.username
     if request.new_password: user.password = Hash.bcrypt(request.new_password)

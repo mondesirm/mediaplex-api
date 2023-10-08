@@ -21,7 +21,6 @@ router.prefix = '/user'
 
 @router.get('', response_model=List[user_schema.User])
 def get_all(current_user: user_schema.User = Depends(get_current_user), db: Session = Depends(get_db)):
-    print(f'Current user: {current_user}')
     return user.get_all(current_user, db)
 
 @router.get('/{id}', response_model=user_schema.User)
