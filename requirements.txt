@@ -7,3 +7,4 @@ SQLAlchemy==1.4.45
 python-multipart
 bcrypt
 uvicorn
+python-dotenv

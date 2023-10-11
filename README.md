@@ -1,21 +1,13 @@
-<h1 align="center">
-📺 mediaplex Backend
-</h1>
+![mediaplex](assets/logo.svg)
+<h1 align="center">BACKEND</h1>
 
-This repository is developed as a backend for [mediaplex App](https://github.com/mondesirm/mediaplex-app). This backend utilizes the following tech-stack:
+> See [full project](https://github.com/mondesirm/mediaplex) or [FRONTEND](https://github.com/mondesirm/mediaplex-app) for more details.
 
-- [🐳 Docker](https://www.docker.com/)
-- [🐍 FastAPI](https://fastapi.tiangolo.com/)
+## Stack
+- [🐳 Docker](https://docker.com)
+- [🐍 FastAPI](https://fastapi.tiangolo.com)
 
-## Why above Tech-Stack?
-
-- FastAPI is crowned as the fastest web framework for Python and thus we use it for our backend development.
-- Docker is a technology that packages an application into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.
-
-## Setup Guide
-
-This backend application is setup with Docker. Nevertheless, you can see the full local setup without Docker.
-
+## Local Setup
 
 1. Create a virtual-env
 
@@ -30,37 +22,32 @@ pyenv local any_venv_name
 pip3 install -r requirements.txt
 ```
 
-3. Test run your backend server
+3. Run server with one of the following commands
 
 ```python
-uvicorn main:app --reload
-    or
 python main.py
+```
+```python
+uvicorn main:app --reload
 ```
 
 ## Deployment
-
-for hosting purpose, this backend application is hosted on [Okteto](https://www.okteto.com/).
+For hosting purpose, this backend application is hosted on [Okteto](https://www.okteto.com/).
 
 ## API Reference
-
 #### Login
-
 ```
   POST /login/
 ```
-
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `username` | `string` | email |
 | `password` | `string` | password |
 
 #### Sign Up
-
 ```
   POST /user/
 ```
-
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `username` | `string` | username  |
@@ -68,27 +55,23 @@ for hosting purpose, this backend application is hosted on [Okteto](https://www.
 | `email` | `string` | email |
 
 ### Get User
-
 ```
   GET /user/{id}
 ```
-
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `id` | `int` | **Required**. your Access Token |
 
 
 ### Add to Favourites
-
 ```
   POST /fav/add
 ```
-
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `url` | `string` | **Required**. your Access Token  |
-| `name` | `string` | **Required**. your Access Token  |
-| `category` | `string` | **Required**. your Access Token  |
+| `url` | `string` | **Required**. your Access Token |
+| `name` | `string` | **Required**. your Access Token |
+| `category` | `string` | **Required**. your Access Token |
 
 
 ### Get Favourites
@@ -96,20 +79,18 @@ for hosting purpose, this backend application is hosted on [Okteto](https://www.
 ```
   GET /fav/add
 ```
-
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `none` | `none` | **Required**. your Access Token  |
+| `none` | `none` | **Required**. your Access Token |
 
 
 ### Delete Favourite
-
 ```
   DELETE /fav/delete
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `url` | `string` | **Required**. your Access Token  |
-| `name` | `string` | **Required**. your Access Token  |
-| `category` | `string` | **Required**. your Access Token  |
+| `url` | `string` | **Required**. your Access Token |
+| `name` | `string` | **Required**. your Access Token |
+| `category` | `string` | **Required**. your Access Token |

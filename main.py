@@ -8,7 +8,7 @@ from mediaplex.database import engine
 from mediaplex.routers import user, login, fav
 
 app = FastAPI()
-app.mount('/static', StaticFiles(directory='static'), name='static')
+app.mount('/assets', StaticFiles(directory='assets'), name='assets')
 
 models.Base.metadata.create_all(bind=engine)
 
